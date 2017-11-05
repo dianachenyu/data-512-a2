@@ -1,47 +1,54 @@
 # A2: Bias in data
 ## Project Goal
 
-The goal of the project is find whether bias exist in Wikipedia articles. 
+The goal of the project is to find whether bias exists in Wikipedia articles of potical figures from countries around the world. We performed an analysis on article quality and politician coverage among various countries. 
 
 
 ## Data Description
 
 ### Soure data
-Data is collected from two different API endpoints, the Pagecounts API and the Pageviews API.
+There are two data sources, wikipedia dataset and population dataset.
 
-* [Pagecounts API](https://wikimedia.org/api/rest_v1/#!/Pagecounts_data_(legacy)/get_metrics_legacy_pagecounts_aggregate_project_access_site_granularity_start_end) provides desktop and mobile traffic data from January 2008 through July 2016.
+* [Wikipedia dataset](https://figshare.com/articles/Untitled_Item/5513449) contains English Wikipedia articles under the category "Category:Politicians by nationality" and its subcategories. The dataset is found on Figshare.
 
-* [Pageviews API](https://wikimedia.org/api/rest_v1/#!/Pageviews_data/get_metrics_pageviews_aggregate_project_access_agent_granularity_start_end) provides desktop, mobile web, and mobile app traffic data from July 2015 through September 2017.
+  There are three variables in the Wikipedia dataset:
+  page: article name
+  country
+  rev_id: revision id
+
+* [Population dataset](http://www.prb.org/DataFinder/Topic/Rankings.aspx?ind=14) contains world population data in 2005. The dataset is found on Population Research Bureau website.
+
+There are five variables in the population dataset:
+  ** Location: country name
+  ** Location Type: it is all "Country" in this dataset
+  TimeFrame: it is all "Mid-2015" in this dataset
+  Data Type: it is all "Number" in this dataset
+  Data: population data
 
 License
-* Source data is licensed under the [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) and [GFDL licenses](https://www.gnu.org/copyleft/fdl.html)
+* Wikipedia dataset is licensed under the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 * [Wikimedia Foundation terms of use](https://wikimediafoundation.org/wiki/Terms_of_Use/en)
 
+* The license of population dataset is unknown. There is no information found on [Population Research Bureau website](http://www.prb.org/DataFinder.aspx). Addional communication with Population Research Bureau may be needed before using and publishing the data.
+
 Relevant API documentation
 
-* Pagecounts API ([documentation](https://wikitech.wikimedia.org/wiki/Analytics/AQS/Legacy_Pagecounts), [endpoint](https://wikimedia.org/api/rest_v1/#!/Pagecounts_data_(legacy)/get_metrics_legacy_pagecounts_aggregate_project_access_site_granularity_start_end)) 
+* [ORES API](https://www.mediawiki.org/wiki/ORES)("Objective Revision Evaluation Service") provides machine learning as a service to estimate arcitle quality. There are six quality categories, from best to worst: FA (featured article), GA (good article), B (B-class article), C (C-class article), Start (Start-class article), Stub (Stub-class article). In this project, we consider article in FA or GA categories as high-quality articles
 
-* Pageviews API ([documentation](https://wikitech.wikimedia.org/wiki/Analytics/AQS/Pageviews), [endpoint](https://wikimedia.org/api/rest_v1/#!/Pageviews_data/get_metrics_pageviews_aggregate_project_access_agent_granularity_start_end)) 
 
 ## Result
-In the [final data file](https://github.com/dianachenyu/data-512-a1/blob/master/en-wikipedia_traffic_200801-201709.csv), there are fields:
-* year:	year of data in YYYY format, from 2008 to 2017
-* month: year of data in MM format, from 01 to 12
-* pagecount_all_views: total of desktop and mobile traffic data from Pagecounts API  
-* pagecount_desktop_views: desktop traffic data from Pagecounts API  
-* pagecount_mobile_views: mobile traffic data from Pagecounts API  
-* pageview_all_views: total of desktop and mobile traffic data from Pageviews API
-* pageview_desktop_views: desktop traffic data from Pageviews API
-* pageview_mobile_views: mobile traffic data from Pageviews API, including both mobile-app and mobile-web traffic
+In the result data file [wikipedia_ores_population.csv](https://github.com/dianachenyu/data-512-a2/blob/master/wikipedia_ores_population.csv), there are fields:
+
+* country: country name
+* article_name: name of Wikipedia article
+* revision_id: revision id
+* article_quality: article qualitys from ORES API. It is a categorical variable with 6 possible values: FA, GA, B, C, Start, Stub
+* population: country population from population dataset
 
 
 ## Issues
-The Pageview API allows filter by agent=user; thus data from the Pageview API excludes spiders/crawlers. While data from the Pagecounts API does not provide this function; thus data from Pagecounts API includes both user and spider traffic.
-
-There is about a 13 month period in which both APIs provide traffic data. 
-
-All values of pagecount_mobile_views for months before October 2014 is 0. Mobile traffic data is not available before that month.
+Both Wikipedia dataset and population dataset have fields containing country name. While the values of the two fields do not overlap exactly. There are countries exist in one dataset but not the other. In this project, we only use countries found in both datasets and remove the values of non-matching rows.
 
 ## References
 [UW HCDS Class](https://wiki.communitydata.cc/HCDS_(Fall_2017))
