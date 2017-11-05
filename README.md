@@ -29,7 +29,7 @@ There are two data sources, Wikipedia dataset and population dataset.
 ### License
 * Wikipedia dataset is licensed under the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
-* [Wikimedia Foundation terms of use](https://wikimediafoundation.org/wiki/Terms_of_Use/en)
+* [Wikimedia Foundation terms of use](https://wikimediafoundation.org/wiki/Terms_of_Use/en).
 
 * The license of population dataset is unknown. There is no information found on [Population Research Bureau website](http://www.prb.org/DataFinder.aspx). Addional communication with Population Research Bureau may be necessarg before using and publishing the data.
 
