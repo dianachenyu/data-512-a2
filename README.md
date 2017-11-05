@@ -12,9 +12,10 @@ There are two data sources, wikipedia dataset and population dataset.
 * [Wikipedia dataset](https://figshare.com/articles/Untitled_Item/5513449) contains English Wikipedia articles under the category "Category:Politicians by nationality" and its subcategories. The dataset is found on Figshare.
 
   There are three variables in the Wikipedia dataset:
-  page: article name
-  country
-  rev_id: revision id
+
+  	* page: article name
+  	* country
+  	* rev_id: revision id
 
 * [Population dataset](http://www.prb.org/DataFinder/Topic/Rankings.aspx?ind=14) contains world population data in 2005. The dataset is found on Population Research Bureau website.
 
