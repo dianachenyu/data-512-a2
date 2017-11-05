@@ -19,12 +19,12 @@ There are two data sources, wikipedia dataset and population dataset.
 
 * [Population dataset](http://www.prb.org/DataFinder/Topic/Rankings.aspx?ind=14) contains world population data in 2005. The dataset is found on Population Research Bureau website.
 
-There are five variables in the population dataset:
-  ** Location: country name
-  ** Location Type: it is all "Country" in this dataset
-  TimeFrame: it is all "Mid-2015" in this dataset
-  Data Type: it is all "Number" in this dataset
-  Data: population data
+  There are five variables in the population dataset:
+   * Location: country name
+   * Location Type: it is all "Country" in this dataset
+   * TimeFrame: it is all "Mid-2015" in this dataset
+   * Data Type: it is all "Number" in this dataset
+   * Data: population data
 
 License
 * Wikipedia dataset is licensed under the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
