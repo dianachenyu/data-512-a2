@@ -6,7 +6,7 @@ The goal of the project is to find whether bias exists in Wikipedia articles of 
 
 ## Data Description
 
-### Data Source
+### Source Data 
 There are two data sources, Wikipedia dataset and population dataset.
 
 * [Wikipedia dataset](https://figshare.com/articles/Untitled_Item/5513449) contains English Wikipedia articles under the category "Category:Politicians by nationality" and its subcategories. The dataset is found on [Figshare](https://figshare.com/).
@@ -26,7 +26,7 @@ There are two data sources, Wikipedia dataset and population dataset.
    * Data Type: the field only contains "Number" in this dataset
    * Data: population data
 
-### License
+### License of Source Data
 * Wikipedia dataset is licensed under the [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
 
 * [Wikimedia Foundation terms of use](https://wikimediafoundation.org/wiki/Terms_of_Use/en).
@@ -38,7 +38,7 @@ There are two data sources, Wikipedia dataset and population dataset.
 * [ORES API](https://www.mediawiki.org/wiki/ORES) ("Objective Revision Evaluation Service") provides machine learning as a service to estimate arcitle quality. There are six quality categories, from best to worst: FA (featured article), GA (good article), B (B-class article), C (C-class article), Start (Start-class article), Stub (Stub-class article). In this project, we consider article in FA or GA categories as high-quality articles.
 
 
-## Result
+## Result (final CSV output)
 In the result data file [wikipedia_ores_population.csv](https://github.com/dianachenyu/data-512-a2/blob/master/wikipedia_ores_population.csv), there are fields:
 
 * country: country name
@@ -48,7 +48,7 @@ In the result data file [wikipedia_ores_population.csv](https://github.com/diana
 * population: country population from population dataset
 
 
-## Issues
+## Special Considerations and Known Issues
 Both Wikipedia dataset and population dataset have fields containing country name. Values of the two fields do not overlap exactly. There are countries exist in one dataset but not the other. In this project, we only use countries found in both datasets and remove values of non-matching rows.
 
 ## References
